@@ -1,0 +1,65 @@
+/* SET BACKGROUND TO IMAGE */
+body {
+	background: url(fancy-pants.jpg)
+	left center;
+}
+
+/* SET FONT FOR PARAGRAPH */
+.reveal p {
+	font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+	color: white;
+}
+
+/* SET FONT FOR HEADERS */
+.reveal h1, .reveal h2 {
+	font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+	font-weight: bold;
+}
+
+/* SET FONT FOR FOOTER */
+div.footer {
+	font-size:10pt;
+	font-style: italic;
+	color: #eeeeee;
+	text-align: left center
+}
+
+/* SET POSITION OF FOOTER ON SLIDE */
+.slides .footer{
+	position:fixed;
+	bottom: 5px;
+	left: -50px;
+}
+
+/* SET PROGRESS BAR */
+.reveal .progress {
+	position: absolute;
+	display: none;
+	height: 3px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: #fff; 
+}
+
+.reveal .progress:after {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 10px;
+	width: 100%;
+	top: -10px;
+}
+
+.reveal .progress span {
+	display: block;
+	height: 100%;
+	width: 0px;
+	background-color: currentColor;
+	transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); 
+}
+
+
+
