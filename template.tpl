@@ -38,6 +38,8 @@
 <html>
 <head>
 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
@@ -45,7 +47,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 {% set nb_title = nb.metadata.get('title', '') or resources['metadata']['name'] %}
-<title>{{nb_title}} slides</title>
+<title>{{nb_title}}</title>
 
 <script src="{{resources.reveal.require_js_url}}"></script>
 <script src="{{resources.reveal.jquery_url}}"></script>
@@ -87,6 +89,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 .reveal {
   font-size: 160%;
 }
+
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -95,24 +98,30 @@ if( window.location.search.match( /print-pdf/gi ) ) {
   font-size: 80%;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
+
 .reveal pre code {
   padding: 0px;
 }
+
 .reveal section img {
   border: 0px solid black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
+
 .reveal i {
   font-style: normal;
   font-family: FontAwesome;
   font-size: 2em;
 }
+
 .reveal .slides {
   text-align: left;
 }
+
 .reveal.fade {
   opacity: 1;
 }
+
 .reveal .progress {
   position: static;
 }
