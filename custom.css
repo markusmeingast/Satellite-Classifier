@@ -6,7 +6,8 @@ div.slide-background {
     
 /* SET BACKGROUND IMAGE */
 body {
-    background: url(fabric.jpg);
+	background: url(fabric_sm.jpg);
+	background-size:cover;
 	left center;
 }
 
