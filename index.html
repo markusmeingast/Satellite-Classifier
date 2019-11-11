@@ -13252,10 +13252,6 @@ Markus Meingast ©2019
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">mp</span>
 <span class="n">mp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">([</span><span class="s1">&#39;dark_background&#39;</span><span class="p">])</span>
 
-<span class="c1">#import altair as alt</span>
-<span class="c1">#import vega</span>
-<span class="c1">#alt.renderers.enable(&#39;default&#39;)</span>
-<span class="c1">##alt.renderers.enable(&#39;html&#39;)</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
@@ -13313,32 +13309,11 @@ Markus Meingast ©2019
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Altair-Plots-(not-working-interactively)">Altair Plots (not working interactively)<a class="anchor-link" href="#Altair-Plots-(not-working-interactively)">&#182;</a></h2>
+<h2 id="Altair-Plots-(working-with-IFrame-import)">Altair Plots (working with IFrame import)<a class="anchor-link" href="#Altair-Plots-(working-with-IFrame-import)">&#182;</a></h2>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">x = np.arange(100)</span>
-<span class="sd">source = pd.DataFrame({</span>
-<span class="sd">  &#39;x&#39;: x,</span>
-<span class="sd">  &#39;f(x)&#39;: np.sin(x / 5)</span>
-<span class="sd">})</span>
-
-<span class="sd">alt.Chart(source).mark_line().encode(</span>
-<span class="sd">    x=&#39;x&#39;,</span>
-<span class="sd">    y=&#39;f(x)&#39;</span>
-<span class="sd">).interactive()</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<div class="cell border-box-sizing code_cell rendered celltag_remove_input_cell">
 
 <div class="output_wrapper">
 <div class="output">
@@ -13346,13 +13321,20 @@ Markus Meingast ©2019
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
 
-<div class="output_text output_subarea output_execute_result">
-<pre>&#34;\nx = np.arange(100)\nsource = pd.DataFrame({\n  &#39;x&#39;: x,\n  &#39;f(x)&#39;: np.sin(x / 5)\n})\n\nalt.Chart(source).mark_line().encode(\n    x=&#39;x&#39;,\n    y=&#39;f(x)&#39;\n).interactive()\n&#34;</pre>
+        <iframe
+            width="800"
+            height="650"
+            src="altair.html"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
 </div>
 
 </div>
