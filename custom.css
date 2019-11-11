@@ -18,10 +18,10 @@ body {
 }
 
 /* SET FONT FOR HEADERS */
-.reveal h1, .reveal h2 {
+.reveal h1, .reveal h2, .reveal h3 {
 	font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
 	font-weight: bold;
-    color: orange;
+    	color: orange;
 }
 
 
@@ -74,5 +74,7 @@ div.input_prompt {
     color: orange;
 }
 
-
+.reveal strong, ol {
+	color: white;
+}
 
