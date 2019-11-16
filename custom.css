@@ -80,10 +80,10 @@ div.input_prompt {
 }
 
 .reveal section img {
-    background: rgba(255, 255, 255, 0);
+    	background: rgba(255, 255, 255, 0);
 }
 
-.inline-block {
-   display: inline-block;
+.row {
+     display: inline;
+     padding: 10px;
 }
-
