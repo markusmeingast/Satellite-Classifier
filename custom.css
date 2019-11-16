@@ -6,7 +6,7 @@ div.slide-background {
     
 /* SET BACKGROUND IMAGE */
 body {
-	background: url(fabric_sm.jpg);
+	background: url(img/fabric_sm.jpg);
 	background-size:cover;
 	left center;
 }
@@ -14,6 +14,7 @@ body {
 /* SET FONT FOR PARAGRAPH */
 .reveal p {
 	font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+	font-size: 30pt;
 	color: white;
 }
 
@@ -27,7 +28,7 @@ body {
 
 /* SET FONT FOR FOOTER */
 div.footer {
-	font-size:10pt;
+	font-size: 10pt;
 	font-style: italic;
 	color: #eeeeee;
 	text-align: left center
@@ -76,5 +77,13 @@ div.input_prompt {
 
 .reveal strong, ol {
 	color: white;
+}
+
+.reveal section img {
+    background: rgba(255, 255, 255, 0);
+}
+
+.inline-block {
+   display: inline-block;
 }
 
