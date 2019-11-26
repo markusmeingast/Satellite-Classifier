@@ -14,8 +14,16 @@ body {
 /* SET FONT FOR PARAGRAPH */
 .reveal p {
 	font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
-	font-size: 30pt;
+	font-size: 20pt;
 	color: white;
+}
+
+.reveal ol {
+	font-size: 20pt;
+}
+
+.reveal li {
+	font-size: 20pt;
 }
 
 /* SET FONT FOR HEADERS */
