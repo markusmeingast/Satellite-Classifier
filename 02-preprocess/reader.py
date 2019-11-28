@@ -113,8 +113,8 @@ for ix in range(0,image_arr.shape[1],50):
 
 categories = landcover_arr.T.flatten()
 
-np.savetxt(f'target-{city}.csv', categories, fmt='%2i')
-np.savetxt(f'input-{city}.csv', images)
+np.save(f'target-{city}.npy', categories)
+np.save(f'input-{city}.npy', images)
 
 ################################################################################
 # %% DUMP
