@@ -1,5 +1,10 @@
 """
 
+
+TODO:
+1. CLEAN CODE
+2. API TO DRIVE TO GET FILES DIRECTLY?
+3. (OR) COMMAND LINE INTERFACE
 """
 
 ################################################################################
@@ -43,21 +48,21 @@ cm = LinearSegmentedColormap.from_list('google', palette_rgb)
 # %% IMPORT IMAGE/LANDCOVER DATA
 ################################################################################
 
-city = 'berlin'
-image = rasterio.open(f'image-{city}-2015.tif')
-landcover = rasterio.open(f'landcover-{city}-2012.tif')
+city = 'bordeaux'
+image = rasterio.open(f'../01-submit-image/image-{city}-2016.tif')
+landcover = rasterio.open(f'../01-submit-image/landcover-{city}-2012.tif')
 
 ################################################################################
 # %% PLOT OVERLAY
 ################################################################################
-"""
+
 fig, ax = mp.subplots(1,1)
 show(image, ax=ax, vmin=0.0, vmax=0.3)
 show(landcover, alpha=0.3, vmin=1, vmax=len(palette_hex), cmap=cm, ax=ax)
 mp.gca().set_aspect(1.0/np.cos(image.lnglat()[1]*np.pi/180.0))
 mp.savefig(f'{city}-overlay.png', dpi=1200)
 mp.show()
-"""
+
 ################################################################################
 # %% LOOP OVER INTERNAL LANDCOVER PIXELS
 ################################################################################
