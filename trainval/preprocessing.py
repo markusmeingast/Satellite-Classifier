@@ -14,6 +14,12 @@ import numpy as np
 import sys
 
 ################################################################################
+# %% PARAMETERS
+################################################################################
+
+case = 'val' # / "train"
+
+################################################################################
 # %% DEF FUNCTIONS / CLASS / ETC
 ################################################################################
 
@@ -28,7 +34,7 @@ def chunk_gen(numbers, n_sec):
 
 ##### GET IMAGE NUMBERS
 numbers = []
-for sector in glob.glob('train/image/christchurch_*.tif'):
+for sector in glob.glob('val/image/christchurch_*.tif'):
     numbers.append(sector.split('_')[1][:-4])
 
 ##### GET CHUNKS OF 100 FROM NUMBERS
@@ -36,7 +42,7 @@ numbers = chunk_gen(numbers, 60)
 
 ##### ITERATE OVER FILES CHUNKS
 for i, chunk in enumerate(numbers):
-    print(f'Processing chunk {i}')
+    print(f'Processing chunk {i} of {len(numbers)}')
 
 
     ##### GLOBAL IMAGE PARAMETERS
@@ -58,8 +64,8 @@ for i, chunk in enumerate(numbers):
         print(f'Processing --christchurch_{number}.tif--')
 
         ##### OPEN IMAGE AND LABEL FILES
-        image = rasterio.open(f'train/image/christchurch_{number}.tif')
-        label = rasterio.open(f'train/label/christchurch_{number}.tif')
+        image = rasterio.open(f'{case}/image/christchurch_{number}.tif')
+        label = rasterio.open(f'{case}/label/christchurch_{number}.tif')
 
         ##### CHECK IF PICTURE SHAPED CORRECTLY
         if image.shape == (10000, 10000):
@@ -83,17 +89,5 @@ for i, chunk in enumerate(numbers):
         y = y[:-failed*piecesx*piecesy, :, :, :]
 
     ##### SAVE CHUNK TO FILE
-    np.save(f'pre/image-{i}.npy', X)
-    np.save(f'pre/label-{i}.npy', y)
-
-    break
-
-################################################################################
-# %% PLOT
-################################################################################
-id = 900
-
-mp.imshow(X[id,:,:,:])
-mp.imshow(y[id,:,:,0], alpha=0.5)
-
-y.shape
+    np.save(f'pre/image-{case}-{i}.npy', X)
+    np.save(f'pre/label-{case}-{i}.npy', y)
