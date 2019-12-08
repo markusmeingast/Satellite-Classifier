@@ -13,7 +13,7 @@ import tensorflow as tf
 # %% NEED TO PROVIDE DATA AS EXAMPLE INPUT FOR CONVERSION/QUANTIFICATION
 ################################################################################
 
-X_train = np.load('pre/image-0.npy')[0:100]
+X_train = np.load('pre/image-train-0.npy')[0:100]
 
 ##### CONVERT DIMENSIONS FOR CONV2D
 X_train = X_train/255
