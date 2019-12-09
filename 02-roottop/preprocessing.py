@@ -17,7 +17,7 @@ import sys
 # %% PARAMETERS
 ################################################################################
 
-case = 'val' # / "train"
+case = 'train' # / "train"
 
 ################################################################################
 # %% DEF FUNCTIONS / CLASS / ETC
@@ -34,11 +34,11 @@ def chunk_gen(numbers, n_sec):
 
 ##### GET IMAGE NUMBERS
 numbers = []
-for sector in glob.glob('val/image/christchurch_*.tif'):
+for sector in glob.glob(f'{case}/image/christchurch_*.tif'):
     numbers.append(sector.split('_')[1][:-4])
 
 ##### GET CHUNKS OF 100 FROM NUMBERS
-numbers = chunk_gen(numbers, 60)
+numbers = chunk_gen(numbers, 1)
 
 ##### ITERATE OVER FILES CHUNKS
 for i, chunk in enumerate(numbers):

@@ -63,6 +63,12 @@ while cap.isOpened():
     ##### RUN ON TPU
     results = engine.run_inference(input)
 
+    ##### REFORMAT RESULTS
+    results = (results[1].reshape(xdim, ydim)*255).astype(np.uint8)
+
+    ##### CONVERT TO BINARY (OTHER OPTIONS MAY MAKE MORE SENSE)
+    _, results = cv2.threshold(results,128,255,cv2.THRESH_BINARY)
+
     ##### PLOT RESULTS
     #mp.gca().cla()
     #mp.bar(np.arange(10),engine.get_raw_output())
@@ -72,9 +78,9 @@ while cap.isOpened():
     ##### SHOW IMAGE THAT WAS FORWARDED TO TPU MODEL
     #image = cv2.resize(image, (560, 560))
 
-    print(engine.get_raw_output())
 
-    cv2.imshow('frame', image)
+
+    cv2.imshow('frame', results)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 

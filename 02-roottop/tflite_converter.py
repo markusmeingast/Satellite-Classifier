@@ -26,12 +26,12 @@ X_train = X_train/255
 ##### GENERATOR FOR SAMPLE INPUT DATA TO QUANTIZE ON
 def representative_dataset_gen():
     for i in range(100):
-        yield [X_train[i, None].astype(np.float32)]
+        yield [(X_train[i, None]).astype(np.float32)]
 
 ##### CREATE CONVERTER
-model = tf.keras.models.load_model('keras_model.h5')
-converter = tf.lite.TFLiteConverter.from_keras_model(model) # <-- ISSUES GETTING QUANTIZED!
-#converter = tf.compat.v1.lite.TFLiteConverter.from_keras_model_file('keras_model.h5')
+#model = tf.keras.models.load_model('keras_model.h5')
+#converter = tf.lite.TFLiteConverter.from_keras_model(model) # <-- ISSUES GETTING QUANTIZED!
+converter = tf.compat.v1.lite.TFLiteConverter.from_keras_model_file('keras_model.h5')
 
 ##### SHOW MODEL WHAT DATA WILL LOOK LIKE
 converter.representative_dataset = representative_dataset_gen
