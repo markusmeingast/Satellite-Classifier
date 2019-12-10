@@ -67,7 +67,7 @@ while cap.isOpened():
     results = (results[1].reshape(xdim, ydim)*255).astype(np.uint8)
 
     ##### CONVERT TO BINARY (OTHER OPTIONS MAY MAKE MORE SENSE)
-    _, results = cv2.threshold(results,128,255,cv2.THRESH_BINARY)
+    #_, results = cv2.threshold(results,128,255,cv2.THRESH_BINARY)
 
     ##### PLOT RESULTS
     #mp.gca().cla()

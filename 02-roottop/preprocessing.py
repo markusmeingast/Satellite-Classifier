@@ -38,7 +38,7 @@ for sector in glob.glob(f'{case}/image/christchurch_*.tif'):
     numbers.append(sector.split('_')[1][:-4])
 
 ##### GET CHUNKS OF 100 FROM NUMBERS
-numbers = chunk_gen(numbers, 1)
+numbers = chunk_gen(numbers, 60)
 
 ##### ITERATE OVER FILES CHUNKS
 for i, chunk in enumerate(numbers):
