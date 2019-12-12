@@ -16,14 +16,14 @@ from rastachimp import as_shapely, simplify_dp
 # %% LOAD MODEL
 ################################################################################
 
-model = keras.models.load_model('keras_model.h5')
+model = keras.models.load_model('../03-training/keras_model.h5')
 
 ################################################################################
 # %% LOAD DATA
 ################################################################################
 
-X_test = np.load('pre/image-val-0.npy')
-y_test = np.load('pre/label-val-0.npy')
+X_test = np.load('../00-datasets/roof-dataset/pre/image-val-0.npy')
+y_test = np.load('../00-datasets/roof-dataset/pre/label-val-0.npy')
 
 ################################################################################
 # %% PLOTTING BASE TRUTH
@@ -32,7 +32,7 @@ y_test = np.load('pre/label-val-0.npy')
 fig = mp.figure(figsize=(8,8))
 
 ##### ID FOR PLOTTING
-id = 16
+id = 9
 
 mp.imshow(X_test[id,:,:,:])
 mp.imshow(y_test[id,:,:,0], alpha=0.5)
@@ -73,7 +73,8 @@ shapes = simplify_dp(shapes, 3)
 
 for i in shapes:
     shape = list(zip(*list(i[0].exterior.coords)))
-    mp.fill(shape[0], shape[1], lw=3, alpha=0.5)
+    mp.fill(shape[0], shape[1], alpha=0.5)
+    mp.plot(shape[0], shape[1], lw=2, color='yellow')
 
 mp.axis([0, 256, 256, 0])
 mp.axis('off')

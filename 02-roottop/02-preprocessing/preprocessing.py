@@ -32,25 +32,29 @@ def chunk_gen(numbers, n_sec):
 # %% LOAD IMAGES
 ################################################################################
 
-##### GET IMAGE NUMBERS
-numbers = []
+""" ROOF
 for sector in glob.glob(f'{case}/image/christchurch_*.tif'):
     numbers.append(sector.split('_')[1][:-4])
+"""
+
+##### GET IMAGE NUMBERS
+numbers = []
+for sector in glob.glob(f'../00-datasets/potsdam-dataset/{case}/top_potsdam_*RGB.tif'):
+    numbers.append(sector.split('m')[2][:-7])
 
 ##### GET CHUNKS OF 100 FROM NUMBERS
-numbers = chunk_gen(numbers, 60)
+numbers = chunk_gen(numbers, 19)
 
 ##### ITERATE OVER FILES CHUNKS
 for i, chunk in enumerate(numbers):
     print(f'Processing chunk {i} of {len(numbers)}')
 
-
     ##### GLOBAL IMAGE PARAMETERS
-    step = 3
+    step = 4
     dimx = 256
     dimy = 256
-    piecesx = int(np.floor(10000/step/dimx))
-    piecesy = int(np.floor(10000/step/dimy))
+    piecesx = int(np.floor(6000/step/dimx)) # 10000 for AIRS
+    piecesy = int(np.floor(6000/step/dimy)) # 10000 for AIRS
 
 
     ##### INIT EMPTY NUMPY ARRAY FOR IMAGES
@@ -61,16 +65,23 @@ for i, chunk in enumerate(numbers):
     sample_id = 0
     failed = 0
     for number in chunk:
-        print(f'Processing --christchurch_{number}.tif--')
+        print(f'Processing {number} --')
 
         ##### OPEN IMAGE AND LABEL FILES
-        image = rasterio.open(f'{case}/image/christchurch_{number}.tif')
-        label = rasterio.open(f'{case}/label/christchurch_{number}.tif')
+        image = rasterio.open(f'../00-datasets/potsdam-dataset/{case}/top_potsdam{number}RGB.tif')
+        label = rasterio.open(f'../00-datasets/potsdam-dataset/{case}/top_potsdam{number}label.tif')
 
         ##### CHECK IF PICTURE SHAPED CORRECTLY
-        if image.shape == (10000, 10000):
+        if image.shape == (6000, 6000):
             img = image.read().transpose(1,2,0)[::step, ::step,:]
             lbl = label.read().transpose(1,2,0)[::step, ::step,:]
+
+            ##### EXTRACT CARS ONLY
+            boolr = lbl[:,:,0] == 255
+            boolg = lbl[:,:,1] == 255
+            boolb = lbl[:,:,2] == 0
+            lbl = (boolr*boolg*boolb).astype(int)
+            lbl = lbl[:, :, np.newaxis]
 
             ##### SPLIT INTO DIMXxDIMY CHUNKS
             for ix in range(0, piecesx*dimx, dimx):
@@ -89,5 +100,5 @@ for i, chunk in enumerate(numbers):
         y = y[:-failed*piecesx*piecesy, :, :, :]
 
     ##### SAVE CHUNK TO FILE
-    np.save(f'pre/image-{case}-{i}.npy', X)
-    np.save(f'pre/label-{case}-{i}.npy', y)
+    np.save(f'../00-datasets/potsdam-dataset/pre/image-{case}-{i}.npy', X)
+    np.save(f'../00-datasets/potsdam-dataset/pre/label-{case}-{i}.npy', y)
