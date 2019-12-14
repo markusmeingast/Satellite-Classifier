@@ -11,19 +11,99 @@ import matplotlib.pyplot as mp
 import numpy as np
 from rasterio import features
 from rastachimp import as_shapely, simplify_dp
+from edgetpu.basic.basic_engine import BasicEngine
+import numpy as np
+import cv2
+from mss import mss
+from PIL import Image
 
 ################################################################################
 # %% LOAD MODEL
 ################################################################################
 
-model = keras.models.load_model('../03-training/keras_model.h5')
+engine = BasicEngine('../01-deployment/roof_edgetpu.tflite')
+(_, xdim, ydim, zdim) = engine.get_input_tensor_shape()
 
+################################################################################
+# %% DEFINE SCREEN POSITION
+################################################################################
+
+mon = {'top': 200, 'left': 50, 'width': 512, 'height': 512}
+sct = mss()
+
+################################################################################
+# %% LOOP UNTIL CLOSED
+################################################################################
+
+while True:
+
+    ##### GRAB SCREEN
+    img = np.array(sct.grab(mon))
+
+    ##### DROP ALPHA
+    img = img[:,:,0:3]
+
+    ##### RESIZE TO FIT IN MODEL
+    img = cv2.resize(img, (xdim, ydim))
+    img = np.flip(img, axis=2)
+
+    ##### FLATTEN INPUT (TPU REQUIREMENT)
+    input = img.flatten()
+
+    #print(input)
+
+    ##### RUN ON TPU
+    results = engine.run_inference(input)
+
+    ##### BINARY
+    results = results[1] > 0.5
+
+    ##### REFORMAT RESULTS
+    results = (results.reshape(xdim, ydim)*255).astype(np.uint8)
+
+    ##### GET MASK
+    #mask = results > 128
+
+    #####
+    """
+    try:
+        shapes = features.shapes(results, connectivity=4)
+        shapes = as_shapely(shapes)
+        shapes = simplify_dp(shapes, 3)
+        for i in shapes:
+            shape = np.array(i[0].exterior.coords)
+            shape = shape.astype(int)
+            shape = shape.reshape((-1,1,2))
+            if len(shape)>2:
+                cv2.polylines(img,[shape],True,(255,0,255),2)
+    except:
+        pass
+    """
+
+
+    ##### RESHAPE FOR PLOTTING
+    out = cv2.resize(results, (512, 512))
+
+
+
+
+    cv2.imshow('test', out)
+    if cv2.waitKey(25) & 0xFF == ord('q'):
+        cv2.destroyAllWindows()
+        break
+
+
+
+
+"""
 ################################################################################
 # %% LOAD DATA
 ################################################################################
 
-X_test = np.load('../00-datasets/roof-dataset/pre/image-val-0.npy')
-y_test = np.load('../00-datasets/roof-dataset/pre/label-val-0.npy')
+#X_test = np.load('../00-datasets/roof-dataset/pre/image-val-0.npy')
+#y_test = np.load('../00-datasets/roof-dataset/pre/label-val-0.npy')
+
+
 
 ################################################################################
 # %% PLOTTING BASE TRUTH
@@ -79,3 +159,4 @@ for i in shapes:
 mp.axis([0, 256, 256, 0])
 mp.axis('off')
 mp.show()
+"""

@@ -43,10 +43,12 @@ for sector in glob.glob(f'../00-datasets/potsdam-dataset/{case}/top_potsdam_*RGB
     numbers.append(sector.split('m')[2][:-7])
 
 ##### GET CHUNKS OF 100 FROM NUMBERS
-numbers = chunk_gen(numbers, 19)
+numbers = chunk_gen(numbers, 18)
 
 ##### ITERATE OVER FILES CHUNKS
 for i, chunk in enumerate(numbers):
+    if i==2:
+        break
     print(f'Processing chunk {i} of {len(numbers)}')
 
     ##### GLOBAL IMAGE PARAMETERS
@@ -69,7 +71,7 @@ for i, chunk in enumerate(numbers):
 
         ##### OPEN IMAGE AND LABEL FILES
         image = rasterio.open(f'../00-datasets/potsdam-dataset/{case}/top_potsdam{number}RGB.tif')
-        label = rasterio.open(f'../00-datasets/potsdam-dataset/{case}/top_potsdam{number}label.tif')
+        label = rasterio.open(f'../00-datasets/potsdam-dataset/{case}/top_potsdam{number}label_flat.tif')
 
         ##### CHECK IF PICTURE SHAPED CORRECTLY
         if image.shape == (6000, 6000):
@@ -77,9 +79,9 @@ for i, chunk in enumerate(numbers):
             lbl = label.read().transpose(1,2,0)[::step, ::step,:]
 
             ##### EXTRACT CARS ONLY
-            boolr = lbl[:,:,0] == 255
-            boolg = lbl[:,:,1] == 255
-            boolb = lbl[:,:,2] == 0
+            boolr = lbl[:,:,0] == 120
+            boolg = lbl[:,:,1] == 120
+            boolb = lbl[:,:,2] == 120
             lbl = (boolr*boolg*boolb).astype(int)
             lbl = lbl[:, :, np.newaxis]
 
@@ -102,3 +104,5 @@ for i, chunk in enumerate(numbers):
     ##### SAVE CHUNK TO FILE
     np.save(f'../00-datasets/potsdam-dataset/pre/image-{case}-{i}.npy', X)
     np.save(f'../00-datasets/potsdam-dataset/pre/label-{case}-{i}.npy', y)
+
+X.shape
