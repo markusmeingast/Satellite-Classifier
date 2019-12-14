@@ -20,6 +20,12 @@ body {
 
 .reveal ol {
 	font-size: 20pt;
+	color: white;
+}
+
+.reveal ul {
+	font-size: 20pt;
+	color: white;
 }
 
 .reveal li {
