@@ -21,7 +21,7 @@ from PIL import Image
 # %% LOAD MODEL
 ################################################################################
 
-engine = BasicEngine('../01-deployment/roof_edgetpu.tflite')
+engine = BasicEngine('../04-deployment/roof_edgetpu.tflite')
 (_, xdim, ydim, zdim) = engine.get_input_tensor_shape()
 
 ################################################################################
@@ -38,22 +38,25 @@ sct = mss()
 while True:
 
     ##### GRAB SCREEN
-    img = np.array(sct.grab(mon))
+    img = np.array(sct.grab(mon)) #( blue / green / red / alpha? )
 
     ##### DROP ALPHA
     img = img[:,:,0:3]
 
     ##### RESIZE TO FIT IN MODEL
     img = cv2.resize(img, (xdim, ydim))
+
+    ##### BGR TO RGB
     img = np.flip(img, axis=2)
 
     ##### FLATTEN INPUT (TPU REQUIREMENT)
     input = img.flatten()
 
-    #print(input)
-
     ##### RUN ON TPU
     results = engine.run_inference(input)
+
+    ##### RGB TO BGR
+    img = np.flip(img, axis=2)
 
     ##### BINARY
     results = results[1] > 0.5
@@ -62,12 +65,11 @@ while True:
     results = (results.reshape(xdim, ydim)*255).astype(np.uint8)
 
     ##### GET MASK
-    #mask = results > 128
+    mask = results > 128
 
     #####
-    """
     try:
-        shapes = features.shapes(results, connectivity=4)
+        shapes = features.shapes(results, mask=mask, connectivity=4)
         shapes = as_shapely(shapes)
         shapes = simplify_dp(shapes, 3)
         for i in shapes:
@@ -75,14 +77,12 @@ while True:
             shape = shape.astype(int)
             shape = shape.reshape((-1,1,2))
             if len(shape)>2:
-                cv2.polylines(img,[shape],True,(255,0,255),2)
+                cv2.polylines(img,[shape],True,(0,255,255),2)
     except:
         pass
-    """
-
 
     ##### RESHAPE FOR PLOTTING
-    out = cv2.resize(results, (512, 512))
+    out = cv2.resize(img, (512, 512))
 
 
 
@@ -91,7 +91,6 @@ while True:
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
-
 
 
 
