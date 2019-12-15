@@ -38,7 +38,7 @@
 <html>
 <head>
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.51.1/plotly.js"></script>
 
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
