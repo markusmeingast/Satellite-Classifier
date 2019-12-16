@@ -4,9 +4,9 @@ Output: cars_edgetpu.tflite
 
 Operator                       Count      Status
 
+MAX_POOL_2D                    4          Mapped to Edge TPU
+CONCATENATION                  4          Mapped to Edge TPU
+QUANTIZE                       6          Mapped to Edge TPU
+CONV_2D                        24         Mapped to Edge TPU
 RESIZE_BILINEAR                4          Mapped to Edge TPU
 LOGISTIC                       1          Mapped to Edge TPU
-MAX_POOL_2D                    4          Mapped to Edge TPU
-QUANTIZE                       6          Mapped to Edge TPU
-CONCATENATION                  4          Mapped to Edge TPU
-CONV_2D                        24         Mapped to Edge TPU

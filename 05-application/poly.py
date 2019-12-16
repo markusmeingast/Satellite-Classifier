@@ -21,7 +21,7 @@ from PIL import Image
 # %% LOAD MODEL
 ################################################################################
 
-engine = BasicEngine('../04-deployment/cars_edgetpu.tflite')
+engine = BasicEngine('../04-deployment/roof_edgetpu.tflite')
 (_, xdim, ydim, zdim) = engine.get_input_tensor_shape()
 
 ################################################################################

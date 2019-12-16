@@ -36,7 +36,7 @@ for number in numbers:
 
     dimx, dimy, dimz, dimw = img.shape
     img_out = np.zeros((8*dimx, dimy, dimz, dimw), dtype=img.dtype)
-    lbl_out = np.zeros((8*dimx, dimy, dimz, 1), dtype=img.dtype)
+    lbl_out = np.zeros((8*dimx, dimy, dimz, 1), dtype=lbl.dtype)
 
     idx = 0
     samples = range(len(img))
