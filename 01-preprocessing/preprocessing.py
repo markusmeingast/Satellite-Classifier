@@ -35,6 +35,7 @@ parser = argparse.ArgumentParser(prog='preprocessing.py', usage='%(prog)s <case>
 parser.add_argument('case', help="'train' or 'val'")
 parser.add_argument('path', help="path to base dataset")
 parser.add_argument('chunk', help="no. of samples per chunk")
+parser.add_argument('--color', help="tuple of uint8 color (e.g. (255,255,255))")
 args = parser.parse_args()
 
 ################################################################################
@@ -65,13 +66,17 @@ for i, number in enumerate(numbers):
     img = rasterio.open(glob.glob(f'{args.path}/{args.case}/image/*_{number}.tif')[0]).read().transpose(1,2,0)[::step, ::step,:]
     lbl = rasterio.open(glob.glob(f'{args.path}/{args.case}/label/*_{number}.tif')[0]).read().transpose(1,2,0)[::step, ::step,:]
 
-    ##### EXTRACT COLOR CODE ONLY (MULTICLASS/POTSDAM)
-    boolr = lbl[:,:,0] == 255
-    boolg = lbl[:,:,1] == 255
-    boolb = lbl[:,:,2] == 0
+    if lbl.shape[3] > 1:
+        if args.color is not None:
+            ##### EXTRACT COLOR CODE ONLY (MULTICLASS/POTSDAM)
+            boolr = lbl[:,:,0] == 255
+            boolg = lbl[:,:,1] == 255
+            boolb = lbl[:,:,2] == 0
 
-    lbl = (boolr*boolg*boolb).astype(int)
-    lbl = lbl[:, :, np.newaxis]
+            lbl = (boolr*boolg*boolb).astype(int)
+            lbl = lbl[:, :, np.newaxis]
+        else:
+            sys.exit('Color not defined or defined correctly!')
 
     ##### GET IMAGE DIMENSIONS
     pix, piy, _ = img.shape
@@ -87,7 +92,25 @@ for i, number in enumerate(numbers):
             lbl_section = lbl[iy:iy+dimy, ix:ix+dimx, 0]
 
             ##### CHECK IF LABEL CONTAINS ANY TARGET
-            if lbl_section.max() == 1:
+            if args.case == 'train':
+                if lbl_section.max() == 1:
+                    print(f'Adding sample {sample_id}')
+
+                    ##### SET SAMPLE
+                    X[sample_id, 0:dimy, 0:dimx, 0:3] = img_section
+                    y[sample_id, 0:dimy, 0:dimx, 0] = lbl_section
+
+                    ##### WRITE TO FILE IF ENOUGH SAMPLES WERE WRITTEN
+                    if sample_id == int(args.chunk)-1:
+                        ##### SAVE CHUNK TO FILE
+                        print(f'Writing file!')
+                        np.save(f'{args.path}/pre/image-{args.case}-{out_idx}.npy', X)
+                        np.save(f'{args.path}/pre/label-{args.case}-{out_idx}.npy', y)
+                        sample_id = 0
+                        out_idx += 1
+                    else:
+                        sample_id += 1
+            else:
                 print(f'Adding sample {sample_id}')
 
                 ##### SET SAMPLE

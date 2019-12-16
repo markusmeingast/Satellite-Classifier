@@ -21,14 +21,14 @@ from PIL import Image
 # %% LOAD MODEL
 ################################################################################
 
-engine = BasicEngine('../04-deployment/roof_edgetpu.tflite')
+engine = BasicEngine('../04-deployment/cars_edgetpu.tflite')
 (_, xdim, ydim, zdim) = engine.get_input_tensor_shape()
 
 ################################################################################
 # %% DEFINE SCREEN POSITION
 ################################################################################
 
-mon = {'top': 200, 'left': 50, 'width': 512, 'height': 512}
+mon = {'top': 200, 'left': 200, 'width': 512, 'height': 512}
 sct = mss()
 
 ################################################################################
@@ -71,13 +71,15 @@ while True:
     try:
         shapes = features.shapes(results, mask=mask, connectivity=4)
         shapes = as_shapely(shapes)
-        shapes = simplify_dp(shapes, 3)
+        shapes = simplify_dp(shapes, 4)
         for i in shapes:
             shape = np.array(i[0].exterior.coords)
             shape = shape.astype(int)
             shape = shape.reshape((-1,1,2))
-            if len(shape)>2:
-                cv2.polylines(img,[shape],True,(0,255,255),2)
+            if len(shape)>4:
+                cv2.fillPoly(img,[shape],(0,255,255,0.2))
+                cv2.polylines(img,[shape],True,(0,0,255),1)
+
     except:
         pass
 
