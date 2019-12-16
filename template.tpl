@@ -268,6 +268,8 @@ require(
           }
         };
 
+	Reveal.configure({ slideNumber: true });
+
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {

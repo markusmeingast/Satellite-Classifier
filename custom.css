@@ -101,3 +101,11 @@ div.input_prompt {
      display: inline;
      padding: 10px;
 }
+
+.reveal .slide-number {
+	font-size: 16px;
+}
+
+figcaption {
+	color: white;
+}
