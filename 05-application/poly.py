@@ -21,7 +21,7 @@ from PIL import Image
 # %% LOAD MODEL
 ################################################################################
 
-engine = BasicEngine('../04-deployment/roof_edgetpu.tflite')
+engine = BasicEngine('../04-deployment/cars_edgetpu.tflite')
 (_, xdim, ydim, zdim) = engine.get_input_tensor_shape()
 
 ################################################################################
@@ -67,6 +67,7 @@ while True:
     ##### GET MASK
     mask = results > 128
 
+    #"""
     #####
     try:
         shapes = features.shapes(results, mask=mask, connectivity=4)
@@ -82,7 +83,7 @@ while True:
 
     except:
         pass
-
+    #"""
     ##### RESHAPE FOR PLOTTING
     out = cv2.resize(img, (512, 512))
 
