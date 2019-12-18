@@ -31,7 +31,7 @@ def representative_dataset_gen():
 ##### CREATE CONVERTER
 #model = tf.keras.models.load_model('keras_model.h5')
 #converter = tf.lite.TFLiteConverter.from_keras_model(model) # <-- ISSUES GETTING QUANTIZED!
-converter = tf.compat.v1.lite.TFLiteConverter.from_keras_model_file('../03-Models/keras_model_cars.h5')
+converter = tf.compat.v1.lite.TFLiteConverter.from_keras_model_file('../03-Models/merged.h5')
 
 ##### SHOW MODEL WHAT DATA WILL LOOK LIKE
 converter.representative_dataset = representative_dataset_gen
@@ -50,7 +50,7 @@ converter.inference_type = tf.float32
 tflite_model = converter.convert()
 
 ##### SAVE MODEL TO FILE
-tflite_model_name = "cars.tflite"
+tflite_model_name = "merged.tflite"
 open(tflite_model_name, "wb").write(tflite_model)
 
 ##### MODEL SHOULD NOW BE COMPILED!
