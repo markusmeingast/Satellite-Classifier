@@ -31,7 +31,7 @@ def representative_dataset_gen():
 ##### CREATE CONVERTER
 #model = tf.keras.models.load_model('keras_model.h5')
 #converter = tf.lite.TFLiteConverter.from_keras_model(model) # <-- ISSUES GETTING QUANTIZED!
-converter = tf.compat.v1.lite.TFLiteConverter.from_keras_model_file('../03-Models/merged.h5')
+converter = tf.compat.v1.lite.TFLiteConverter.from_keras_model_file('../03-Models/keras_model_merged.h5')
 
 ##### SHOW MODEL WHAT DATA WILL LOOK LIKE
 converter.representative_dataset = representative_dataset_gen
