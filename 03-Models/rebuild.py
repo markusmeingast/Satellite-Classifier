@@ -107,8 +107,51 @@ def unet_model(power=2):
     conv9_b = Conv2D(2, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv9_b)
     conv10_b = Conv2D(1, 1, activation = 'sigmoid')(conv9_b)
 
+
+    ##### UNET C
+    conv1_c = Conv2D(2**(power), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(inputs)
+    conv1_c = Conv2D(2**(power), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv1_c)
+    pool1_c = MaxPooling2D(pool_size=(2, 2))(conv1_c)
+    conv2_c = Conv2D(2**(power+1), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(pool1_c)
+    conv2_c = Conv2D(2**(power+1), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv2_c)
+    pool2_c = MaxPooling2D(pool_size=(2, 2))(conv2_c)
+    conv3_c = Conv2D(2**(power+2), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(pool2_c)
+    conv3_c = Conv2D(2**(power+2), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv3_c)
+    pool3_c = MaxPooling2D(pool_size=(2, 2))(conv3_c)
+
+    conv4_c = Conv2D(2**(power+3), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(pool3_c)
+    conv4_c = Conv2D(2**(power+3), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv4_c)
+    drop4_c = Dropout(0.5)(conv4_c)
+    pool4_c = MaxPooling2D(pool_size=(2, 2))(drop4_c)
+
+    conv5_c = Conv2D(2**(power+4), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(pool4_c)
+    conv5_c = Conv2D(2**(power+4), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv5_c)
+    drop5_c = Dropout(0.5)(conv5_c)
+
+    up6_c = Conv2D(2**(power+3), 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(UpSampling2D(size = (2,2), interpolation='bilinear')(drop5_c))
+    merge6_c = concatenate([drop4_c,up6_c], axis = 3)
+    conv6_c = Conv2D(2**(power+3), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(merge6_c)
+    conv6_c = Conv2D(2**(power+3), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv6_c)
+
+    up7_c = Conv2D(2**(power+2), 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(UpSampling2D(size = (2,2), interpolation='bilinear')(conv6_c))
+    merge7_c = concatenate([conv3_c,up7_c], axis = 3)
+    conv7_c = Conv2D(2**(power+2), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(merge7_c)
+    conv7_c = Conv2D(2**(power+2), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv7_c)
+
+    up8_c = Conv2D(2**(power+1), 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(UpSampling2D(size = (2,2), interpolation='bilinear')(conv7_c))
+    merge8_c = concatenate([conv2_c,up8_c], axis = 3)
+    conv8_c = Conv2D(2**(power+1), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(merge8_c)
+    conv8_c = Conv2D(2**(power+1), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv8_c)
+
+    up9_c = Conv2D(2**(power), 2, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(UpSampling2D(size = (2,2), interpolation='bilinear')(conv8_c))
+    merge9_c = concatenate([conv1_c,up9_c], axis = 3)
+    conv9_c = Conv2D(2**(power), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(merge9_c)
+    conv9_c = Conv2D(2**(power), 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv9_c)
+    conv9_c = Conv2D(2, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_uniform')(conv9_c)
+    conv10_c = Conv2D(1, 1, activation = 'sigmoid')(conv9_c)
+
     ##### CONCAT OUTPUTS FROM A AND B
-    outputs = concatenate([conv10_a,conv10_b], axis = 3)
+    outputs = concatenate([conv10_a,conv10_b,conv10_c], axis = 3)
 
     ##### BUILD MODEL
     model = keras.Model(inputs = inputs, outputs = outputs)

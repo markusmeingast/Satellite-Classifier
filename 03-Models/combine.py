@@ -26,14 +26,15 @@ merged = load_model('keras_model_merged_untrained.h5')
 ##### READ THE TRAINED MODELS
 model_cars = load_model('keras_model_cars.h5')
 model_roof = load_model('keras_model_roof.h5')
+model_road = load_model('keras_model_road.h5')
 
 ##### ITERATE OVER THE LAYERS IN THE BLANK MODEL
 lvl = 1
 for i in range(1,len(merged.layers)-1):
-    if i%2 != 0:
+    if i%2 == 1:
         merged.layers[i].set_weights(model_roof.layers[lvl].get_weights())
     else:
-        merged.layers[i].set_weights(model_cars.layers[lvl].get_weights())
+        merged.layers[i].set_weights(model_road.layers[lvl].get_weights())
         lvl += 1
 
 ##### SAVE COMBINED AND "TRAINED" MODEL
@@ -53,6 +54,7 @@ y_test = np.load('../00-raw-data/potsdam-dataset/pre/label-train-0.npy')
 idx= 120
 mp.imshow(X_test[idx])
 mp.imshow(y_test[idx,:,:,0], alpha=0.5)
+mp.show()
 
 ################################################################################
 # %% PLOT PREDICTIONS
@@ -61,9 +63,19 @@ mp.imshow(y_test[idx,:,:,0], alpha=0.5)
 y_pred = merged.predict(X_test[idx][np.newaxis,:,:,:])
 y_pred1 = y_pred[0,:,:,0]
 y_pred2 = y_pred[0,:,:,1]
+y_pred3 = y_pred[0,:,:,2]
 
 mp.imshow(X_test[idx])
 mp.imshow(y_pred1, alpha=0.5)
+mp.show()
+
+mp.imshow(X_test[idx])
+mp.imshow(y_pred2, alpha=0.5)
+mp.show()
+
+mp.imshow(X_test[idx])
+mp.imshow(y_pred3, alpha=0.5)
+mp.show()
 
 ################################################################################
 # %% THIS APPROACH SHOULD WORK IN THEORY, MODEL PRODUCES CORRECT PREDICTIONS

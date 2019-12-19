@@ -92,6 +92,7 @@ while True:
     res[:,:,1] = output
     output = (output > 128).astype(np.uint8)*255
 
+    """
     #####
     try:
         shapes = features.shapes(output, mask=mask, connectivity=4)
@@ -102,10 +103,11 @@ while True:
             shape = shape.astype(int)
             shape = shape.reshape((-1,1,2))
             if len(shape)>4:
-                cv2.fillPoly(ovr,[shape],(0,255,255,0.2))
+                #cv2.fillPoly(ovr,[shape],(0,255,255,0.2))
                 cv2.polylines(img,[shape],True,(0,0,255),2)
     except:
         pass
+    """
 
     ##### GET MASK
     output = results[:,:,0]
@@ -113,6 +115,7 @@ while True:
     res[:,:,0] = output
     output = (output > 128).astype(np.uint8)*255
 
+    """
     #####
     try:
         shapes = features.shapes(output, mask=mask, connectivity=4)
@@ -123,13 +126,14 @@ while True:
             shape = shape.astype(int)
             shape = shape.reshape((-1,1,2))
             if len(shape)>4:
-                cv2.fillPoly(ovr,[shape],(255,0,0,0.2))
+                #cv2.fillPoly(ovr,[shape],(255,0,0,0.2))
                 cv2.polylines(img,[shape],True,(255,0,255),2)
     except:
         pass
+    """
 
     ##### OVERLAY ORIGINAL IMAGE WITH POLYGONS
-    img = cv2.addWeighted(img,1.0,ovr,0.5,0)
+    img = cv2.addWeighted(img,1.0,res,0.8,0)
 
     ##### RESHAPE FOR PLOTTING
     out = cv2.resize(img, (512, 512))
@@ -139,8 +143,9 @@ while True:
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
-
+    """
     cv2.imshow('raw', res)
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
+    """

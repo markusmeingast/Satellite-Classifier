@@ -6,7 +6,7 @@ Operator                       Count      Status
 
 LOGISTIC                       2          Mapped to Edge TPU
 MAX_POOL_2D                    8          Mapped to Edge TPU
-QUANTIZE                       12         Mapped to Edge TPU
 CONCATENATION                  9          Mapped to Edge TPU
+QUANTIZE                       12         Mapped to Edge TPU
 CONV_2D                        48         Mapped to Edge TPU
 RESIZE_BILINEAR                8          Mapped to Edge TPU
