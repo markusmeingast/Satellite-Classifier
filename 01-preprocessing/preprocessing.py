@@ -35,7 +35,7 @@ parser = argparse.ArgumentParser(prog='preprocessing.py', usage='%(prog)s <case>
 parser.add_argument('case', help="'train' or 'val'")
 parser.add_argument('path', help="path to base dataset")
 parser.add_argument('chunk', help="no. of samples per chunk")
-parser.add_argument('--color', help="tuple of uint8 color (e.g. (255,255,255))")
+parser.add_argument('--color', help="tuple of uint8 color (e.g. (255,255,255))")#  <-- doesn't work yet
 args = parser.parse_args()
 
 ################################################################################
@@ -45,10 +45,10 @@ args = parser.parse_args()
 ##### GET IMAGE NUMBERS
 numbers = []
 for sector in glob.glob(f'{args.path}/{args.case}/image/*.tif'):
-    numbers.append(sector.split('_')[-1][:-4])
+    numbers.append(sector.split('-')[-1][:-4])
 
 ##### GLOBAL IMAGE PARAMETERS
-step = 4
+step = 1
 dimx = 256
 dimy = 256
 
@@ -63,14 +63,14 @@ for i, number in enumerate(numbers):
     print(f'Processing image {i+1} of {len(numbers)}: {number}.tif')
 
     ##### OPEN IMAGE AND LABEL FILES
-    img = rasterio.open(glob.glob(f'{args.path}/{args.case}/image/*_{number}.tif')[0]).read().transpose(1,2,0)[::step, ::step,:]
-    lbl = rasterio.open(glob.glob(f'{args.path}/{args.case}/label/*_{number}.tif')[0]).read().transpose(1,2,0)[::step, ::step,:]
+    img = rasterio.open(glob.glob(f'{args.path}/{args.case}/image/*-{number}.tif')[0]).read().transpose(1,2,0)[::step, ::step,:]
+    lbl = rasterio.open(glob.glob(f'{args.path}/{args.case}/label/*-{number}.png')[0]).read().transpose(1,2,0)[::step, ::step,:]
 
-    if lbl.shape[3] > 1:
+    if lbl.shape[2] > 1:
         if args.color is not None:
             ##### EXTRACT COLOR CODE ONLY (MULTICLASS/POTSDAM)
             boolr = lbl[:,:,0] == 255
-            boolg = lbl[:,:,1] == 255
+            boolg = lbl[:,:,1] == 0
             boolb = lbl[:,:,2] == 0
 
             lbl = (boolr*boolg*boolb).astype(int)
@@ -85,11 +85,14 @@ for i, number in enumerate(numbers):
     piecesx = int(np.floor(pix/dimx))
     piecesy = int(np.floor(piy/dimy))
 
+    print(piecesx)
+    print(piecesy)
+
     ##### SPLIT IMAGE INTO DIMXxDIMY CHUNKS
     for ix in range(0, piecesx*dimx, dimx):
         for iy in range(0, piecesy*dimy, dimy):
-            img_section = img[iy:iy+dimy, ix:ix+dimx, 0:3]
-            lbl_section = lbl[iy:iy+dimy, ix:ix+dimx, 0]
+            img_section = img[ix:ix+dimx, iy:iy+dimy, 0:3]
+            lbl_section = lbl[ix:ix+dimx, iy:iy+dimy, 0]
 
             ##### CHECK IF LABEL CONTAINS ANY TARGET
             if args.case == 'train':

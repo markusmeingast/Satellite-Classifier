@@ -94,8 +94,6 @@ while True:
 
     #####
     try:
-        print(output.min())
-        print(output.max())
         shapes = features.shapes(output, mask=mask, connectivity=4)
         shapes = as_shapely(shapes)
         shapes = simplify_dp(shapes, 5)
@@ -106,7 +104,6 @@ while True:
             if len(shape)>4:
                 cv2.fillPoly(ovr,[shape],(0,255,255,0.2))
                 cv2.polylines(img,[shape],True,(0,0,255),2)
-
     except:
         pass
 
@@ -120,7 +117,7 @@ while True:
     try:
         shapes = features.shapes(output, mask=mask, connectivity=4)
         shapes = as_shapely(shapes)
-        shapes = simplify_dp(shapes, 4)
+        shapes = simplify_dp(shapes, 2)
         for i in shapes:
             shape = np.array(i[0].exterior.coords)
             shape = shape.astype(int)
@@ -128,7 +125,6 @@ while True:
             if len(shape)>4:
                 cv2.fillPoly(ovr,[shape],(255,0,0,0.2))
                 cv2.polylines(img,[shape],True,(255,0,255),2)
-
     except:
         pass
 
