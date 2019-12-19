@@ -83,19 +83,19 @@ while True:
     ##### RGB TO BGR
     img = np.flip(img, axis=2)
 
-    ##### BINARY
-    results = results[1] > 0.5
-
     ##### REFORMAT RESULTS
-    results = (results.reshape(xdim, ydim, 2)*255).astype(np.uint8)
+    results = (results[1].reshape(xdim, ydim, 2)*255).astype(np.uint8)
 
     ##### GET MASK
     output = results[:,:,1]
     mask = output > 128
     res[:,:,1] = output
+    output = (output > 128).astype(np.uint8)*255
 
     #####
     try:
+        print(output.min())
+        print(output.max())
         shapes = features.shapes(output, mask=mask, connectivity=4)
         shapes = as_shapely(shapes)
         shapes = simplify_dp(shapes, 5)
@@ -114,6 +114,7 @@ while True:
     output = results[:,:,0]
     mask = output > 128
     res[:,:,0] = output
+    output = (output > 128).astype(np.uint8)*255
 
     #####
     try:
@@ -138,7 +139,12 @@ while True:
     out = cv2.resize(img, (512, 512))
 
     ##### DISPLAY IMAGE AND RESULTS
-    cv2.imshow('test', out)
+    cv2.imshow('polygonized', out)
+    if cv2.waitKey(25) & 0xFF == ord('q'):
+        cv2.destroyAllWindows()
+        break
+
+    cv2.imshow('raw', res)
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
