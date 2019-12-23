@@ -13224,8 +13224,9 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Semantic-Segmentation-in-Aerial/Satellite-imagery">Semantic Segmentation in Aerial/Satellite imagery<a class="anchor-link" href="#Semantic-Segmentation-in-Aerial/Satellite-imagery">&#182;</a></h1><hr>
-<p>Recognizing objects from outer space through deep learning</p>
+<h1 id="Semantic-Segmentation-of-Aerial/Satellite-imagery">Semantic Segmentation of Aerial/Satellite imagery<a class="anchor-link" href="#Semantic-Segmentation-of-Aerial/Satellite-imagery">&#182;</a></h1><hr>
+<p>Feasibility study: <br>
+Infrastructure segmentation for rapid emergency response coordination through deep learning</p>
 <hr>
 <h2 id="Stack:">Stack:<a class="anchor-link" href="#Stack:">&#182;</a></h2><center>
     <img src='img/python.png' width="120" height="120" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp;
@@ -13235,11 +13236,11 @@ a.anchor-link {
     <!-- <img src='img/plotly.png' width="120" height="120" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp; -->
     <!-- <img src='img/mongo.png' width="120" height="120" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp; -->
     <!-- <img src='img/docker.png' width="120" height="120" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp; -->
-    <img src='img/tensorflow.png' width="110" height="110" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp;
     <img src='img/keras.png' width="120" height="120" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp;
+    <img src='img/tensorflow.png' width="110" height="110" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp;
     <!-- <img src='img/tensorflowkeras.png' width="300" height="120" style="display: inline; background: rgba(255, 255, 255, 0)"> -->
+    <img src='img/colab.png' width="190" height="190" style="display: inline; background: rgba(255, 255, 255, 0)"> &emsp;
     <img src='img/googlecloudtpu.png' width="130" height="130" style="display: inline; background: rgba(255, 255, 255, 0)">
-    <img src='img/colab.png' width="190" height="190" style="display: inline; background: rgba(255, 255, 255, 0)">
 
 </center><div class="footer">
 Dr. Markus Meingast 2019
@@ -13262,7 +13263,7 @@ Dr. Markus Meingast 2019
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Pixel-wise-classification">Pixel-wise classification<a class="anchor-link" href="#Pixel-wise-classification">&#182;</a></h3><figure style="display:inline-block;">
+<h3 id="Pixel-wise-classification:-Where-is-a-dog?">Pixel-wise classification: Where is a dog?<a class="anchor-link" href="#Pixel-wise-classification:-Where-is-a-dog?">&#182;</a></h3><figure style="display:inline-block;">
 <img src='img/dog.jpg' width=400>
     <figcaption>raw input</figcaption>
 </figure>
@@ -13283,17 +13284,7 @@ Dr. Markus Meingast 2019
 <h1 id="Roof-top-Segmentation">Roof-top Segmentation<a class="anchor-link" href="#Roof-top-Segmentation">&#182;</a></h1>
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src='img/berlin_statistics.png' width=800></p>
-<p><a href="https://www.stadtentwicklung.berlin.de/umwelt/umweltatlas/ed611_04.html">Senate Department Urban Development and Housing (2017)</a></p>
-<p>What roofs show potential for greenification? How to find out?</p>
-
-</div>
-</div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13326,7 +13317,7 @@ Dr. Markus Meingast 2019
 <li>heavy lifting done on Google Colab (GPU)</li>
 <li>Loss function: Binary Crossentropy</li>
 <li>Optimizer: Adam</li>
-<li>Metrics: Accuracy</li>
+<li>Metrics: Accuracy / DICE</li>
 </ul>
 
 </div>
@@ -13379,20 +13370,84 @@ Dr. Markus Meingast 2019
 <div>
         
         
-            <div id="a94492a7-1648-4c5a-9c1d-1d17153b95f2" class="plotly-graph-div" style="height:600px; width:1200px;"></div>
+            <div id="6e46ae81-eacd-4ab5-acf3-24abfb31d941" class="plotly-graph-div" style="height:600px; width:1200px;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
                     
-                if (document.getElementById("a94492a7-1648-4c5a-9c1d-1d17153b95f2")) {
+                if (document.getElementById("6e46ae81-eacd-4ab5-acf3-24abfb31d941")) {
                     Plotly.newPlot(
-                        'a94492a7-1648-4c5a-9c1d-1d17153b95f2',
+                        '6e46ae81-eacd-4ab5-acf3-24abfb31d941',
                         [{"name": "loss", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "xaxis": "x", "y": [0.4678445800673217, 0.11473724065581335, 0.09392158282571472, 0.08926715957932174, 0.08520700299413875, 0.1020917393907439, 0.07603676660801284, 0.07752443017670885, 0.07487356651108712, 0.08268027321901172, 0.07980623678304255, 0.07044608230353333, 0.06877868363517338, 0.0717297570372466, 0.1266323863528669, 0.09702315615140833, 0.0948389292752836, 0.09166182647459208, 0.08750531531404704, 0.0905995097127743, 0.08533749284106308, 0.08450057267327793, 0.08850922182318753, 0.08557348197791725, 0.08634864923078568, 0.08336841117125005, 0.11345559533219784, 0.07935854746028781], "yaxis": "y"}, {"name": "val_loss", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "xaxis": "x", "y": [0.16227642260491848, 0.09396398137323557, 0.07007159886416048, 0.06457347184186801, 0.03741449789959006, 0.07436737947864458, 0.050271066254936166, 0.09439513104734942, 0.04217991884797812, 0.05640014429809525, 0.06767809903249145, 0.02698994061211124, 0.025556519467500042, 0.05843757215188816, 0.042130244692089036, 0.05589242686983198, 0.07450700539629906, 0.03921027202159166, 0.0333059566328302, 0.0459342171670869, 0.06472535687498747, 0.03619617134972941, 0.034465778182493516, 0.052813902904745184, 0.06062500854022801, 0.0460675117210485, 0.04406436235876754, 0.037363205337896936], "yaxis": "y"}, {"line": {"dash": "dash"}, "name": "acc", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "xaxis": "x", "y": [0.80734897, 0.9562409, 0.9649390999999999, 0.9664370999999999, 0.9677556, 0.9629805, 0.97171926, 0.9709568999999999, 0.97194576, 0.9699877, 0.9704473, 0.97353387, 0.9747009, 0.9735558000000001, 0.95155585, 0.9629379000000001, 0.96433294, 0.9654398000000001, 0.9665821, 0.9657817, 0.9677336, 0.96781904, 0.96668005, 0.96750355, 0.9676513000000001, 0.9682099000000001, 0.9586949, 0.97000617], "yaxis": "y2"}, {"line": {"dash": "dash"}, "name": "val_acc", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "xaxis": "x", "y": [0.9436351000000001, 0.96370554, 0.9725007999999999, 0.97676545, 0.98719895, 0.9808306999999998, 0.98072916, 0.97404546, 0.9850059999999999, 0.97784215, 0.9756135, 0.9902948, 0.9912315999999999, 0.98367184, 0.983405, 0.97973883, 0.9715601999999999, 0.98542726, 0.9877174999999999, 0.98325396, 0.9753153, 0.98731196, 0.98817754, 0.98162144, 0.9764627, 0.984892, 0.9862559000000001, 0.9858723], "yaxis": "y2"}, {"hoverinfo": "none", "line": {"color": "rgb(190, 190, 190)", "dash": "dash", "width": 0.5}, "mode": "lines", "showlegend": false, "type": "scatter", "x": [14, 14], "xaxis": "x", "y": [0.8, 1.0], "yaxis": "y2"}],
                         {"font": {"size": 20}, "height": 600, "legend": {"orientation": "h"}, "paper_bgcolor": "rgba(255,255,255,0.05)", "plot_bgcolor": "rgba(0,0,0,0)", "template": {"data": {"bar": [{"error_x": {"color": "#f2f5fa"}, "error_y": {"color": "#f2f5fa"}, "marker": {"line": {"color": "rgb(17,17,17)", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "rgb(17,17,17)", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#A2B1C6", "gridcolor": "#506784", "linecolor": "#506784", "minorgridcolor": "#506784", "startlinecolor": "#A2B1C6"}, "baxis": {"endlinecolor": "#A2B1C6", "gridcolor": "#506784", "linecolor": "#506784", "minorgridcolor": "#506784", "startlinecolor": "#A2B1C6"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"line": {"color": "#283442"}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"line": {"color": "#283442"}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#506784"}, "line": {"color": "rgb(17,17,17)"}}, "header": {"fill": {"color": "#2a3f5f"}, "line": {"color": "rgb(17,17,17)"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#f2f5fa", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#f2f5fa"}, "geo": {"bgcolor": "rgb(17,17,17)", "lakecolor": "rgb(17,17,17)", "landcolor": "rgb(17,17,17)", "showlakes": true, "showland": true, "subunitcolor": "#506784"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "dark"}, "paper_bgcolor": "rgb(17,17,17)", "plot_bgcolor": "rgb(17,17,17)", "polar": {"angularaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "bgcolor": "rgb(17,17,17)", "radialaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}, "yaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}, "zaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}}, "shapedefaults": {"line": {"color": "#f2f5fa"}}, "sliderdefaults": {"bgcolor": "#C8D4E3", "bordercolor": "rgb(17,17,17)", "borderwidth": 1, "tickwidth": 0}, "ternary": {"aaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "baxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "bgcolor": "rgb(17,17,17)", "caxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}}, "title": {"x": 0.05}, "updatemenudefaults": {"bgcolor": "#506784", "borderwidth": 0}, "xaxis": {"automargin": true, "gridcolor": "#283442", "linecolor": "#506784", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "#283442", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "#283442", "linecolor": "#506784", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "#283442", "zerolinewidth": 2}}}, "title": {"text": "loss / accuracy curve"}, "width": 1200, "xaxis": {"gridcolor": "rgba(100,100,100,1)", "title": {"font": {"size": 20}, "text": "Epoch"}}, "yaxis": {"gridcolor": "rgba(100,100,100,1)", "title": {"font": {"size": 20}, "text": "Loss"}, "type": "log"}, "yaxis2": {"anchor": "x", "overlaying": "y", "range": [0.8, 1.0], "showgrid": false, "side": "right", "title": {"text": "Accuracy"}}},
                         {"responsive": true}
                     ).then(function(){
                             
-var gd = document.getElementById('a94492a7-1648-4c5a-9c1d-1d17153b95f2');
+var gd = document.getElementById('6e46ae81-eacd-4ab5-acf3-24abfb31d941');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })
+                };
+                });
+            </script>
+        </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered celltag_remove_input_cell">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+        
+        
+            <div id="79c1ee40-1156-4042-a85c-6a710d5141ff" class="plotly-graph-div" style="height:600px; width:1200px;"></div>
+            <script type="text/javascript">
+                require(["plotly"], function(Plotly) {
+                    window.PLOTLYENV=window.PLOTLYENV || {};
+                    
+                if (document.getElementById("79c1ee40-1156-4042-a85c-6a710d5141ff")) {
+                    Plotly.newPlot(
+                        '79c1ee40-1156-4042-a85c-6a710d5141ff',
+                        [{"hovertemplate": "precision: %{y} <br>recall:       %{x} <br>DICE:       %{text}", "marker": {"size": [24.370871020165367, 37.22265387830491, 40.8998356045754, 44.15201739310011, 41.98399112760315, 38.758050793829966, 27.06152684972192]}, "mode": "markers+lines", "name": "ROC", "text": [0.8, 0.9, 0.93, 0.95, 0.93, 0.91, 0.82], "type": "scatter", "x": [0.67, 0.84, 0.89, 0.95, 0.98, 0.99, 1.0], "y": [0.99, 0.98, 0.97, 0.95, 0.89, 0.85, 0.7]}],
+                        {"annotations": [{"ax": -220, "ay": 100, "font": {"family": "Courier New, monospace", "size": 16}, "text": "\n            pred. neg. | pred. pos.<br>\nact. neg. |    3933482 |      37612<br>\nact. pos. |      34941 |     647021", "x": 0.9487640073787103, "y": 0.9450625371549428}], "font": {"size": 20}, "height": 600, "legend": {"orientation": "h"}, "paper_bgcolor": "rgba(255,255,255,0.05)", "plot_bgcolor": "rgba(0,0,0,0)", "template": {"data": {"bar": [{"error_x": {"color": "#f2f5fa"}, "error_y": {"color": "#f2f5fa"}, "marker": {"line": {"color": "rgb(17,17,17)", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "rgb(17,17,17)", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#A2B1C6", "gridcolor": "#506784", "linecolor": "#506784", "minorgridcolor": "#506784", "startlinecolor": "#A2B1C6"}, "baxis": {"endlinecolor": "#A2B1C6", "gridcolor": "#506784", "linecolor": "#506784", "minorgridcolor": "#506784", "startlinecolor": "#A2B1C6"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"line": {"color": "#283442"}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"line": {"color": "#283442"}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#506784"}, "line": {"color": "rgb(17,17,17)"}}, "header": {"fill": {"color": "#2a3f5f"}, "line": {"color": "rgb(17,17,17)"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#f2f5fa", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#f2f5fa"}, "geo": {"bgcolor": "rgb(17,17,17)", "lakecolor": "rgb(17,17,17)", "landcolor": "rgb(17,17,17)", "showlakes": true, "showland": true, "subunitcolor": "#506784"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "dark"}, "paper_bgcolor": "rgb(17,17,17)", "plot_bgcolor": "rgb(17,17,17)", "polar": {"angularaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "bgcolor": "rgb(17,17,17)", "radialaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}, "yaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}, "zaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}}, "shapedefaults": {"line": {"color": "#f2f5fa"}}, "sliderdefaults": {"bgcolor": "#C8D4E3", "bordercolor": "rgb(17,17,17)", "borderwidth": 1, "tickwidth": 0}, "ternary": {"aaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "baxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "bgcolor": "rgb(17,17,17)", "caxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}}, "title": {"x": 0.05}, "updatemenudefaults": {"bgcolor": "#506784", "borderwidth": 0}, "xaxis": {"automargin": true, "gridcolor": "#283442", "linecolor": "#506784", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "#283442", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "#283442", "linecolor": "#506784", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "#283442", "zerolinewidth": 2}}}, "title": {"text": "ROC for AIRS model"}, "width": 1200, "xaxis": {"gridcolor": "rgba(100,100,100,1)", "range": [0.65, 1.02], "title": {"font": {"size": 20}, "text": "Recall"}}, "yaxis": {"gridcolor": "rgba(100,100,100,1)", "range": [0.65, 1.02], "title": {"font": {"size": 20}, "text": "Precision"}}},
+                        {"responsive": true}
+                    ).then(function(){
+                            
+var gd = document.getElementById('79c1ee40-1156-4042-a85c-6a710d5141ff');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -13455,6 +13510,25 @@ if (outputEl) {{
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-about-roads?">What about roads?<a class="anchor-link" href="#What-about-roads?">&#182;</a></h1><p>Ottawa-Dataset</p>
+<figure style="display:inline-block;">
+<img src='img/colab_input_road.png' width=350>
+    <figcaption>raw input</figcaption>
+</figure>
+<figure style="display:inline-block;">
+<img src='img/colab_true_road.png' width=350>
+    <figcaption>base truth</figcaption>
+</figure>
+<figure style="display:inline-block;">
+    <img src='img/colab_pred_road.png' width=350>
+    <figcaption>prediction</figcaption>
+</figure>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="What-about-cars?">What about cars?<a class="anchor-link" href="#What-about-cars?">&#182;</a></h1><p>Potsdam-Dataset</p>
 <figure style="display:inline-block;">
 <img src='img/colab_input_cars.png' width=350>
@@ -13468,53 +13542,6 @@ if (outputEl) {{
     <img src='img/colab_pred_cars.png' width=350>
     <figcaption>prediction</figcaption>
 </figure>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Let's-combine-them">Let's combine them<a class="anchor-link" href="#Let's-combine-them">&#182;</a></h1><ul>
-<li>Training model on combined dataset mostly infeasible</li>
-<li>Model compiled for EdgeTPU for inference</li>
-<li>Model input layers share input, out is concatenated</li>
-</ul>
-<h2 id="LIVE-DEMO-TIME!!!">LIVE DEMO TIME!!!<a class="anchor-link" href="#LIVE-DEMO-TIME!!!">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src='img/live-demo-backup.gif' width=800></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Next-Steps">Next Steps<a class="anchor-link" href="#Next-Steps">&#182;</a></h1><ul>
-<li>Enter into AIRS competition</li>
-<li>Segment flat roofs / gable roofs</li>
-<li>More data, more data, more data!</li>
-<li>Try different models / model complexity</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Thank-you-for-your-attention">Thank you for your attention<a class="anchor-link" href="#Thank-you-for-your-attention">&#182;</a></h1>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Backup">Backup<a class="anchor-link" href="#Backup">&#182;</a></h1>
 </div>
 </div>
 </div></section><section>
@@ -13534,20 +13561,20 @@ if (outputEl) {{
 <div>
         
         
-            <div id="87260072-a234-4e84-b02b-c036e2336b0b" class="plotly-graph-div" style="height:600px; width:1200px;"></div>
+            <div id="648b7977-8df8-483e-9ed2-67e63aa2bb90" class="plotly-graph-div" style="height:600px; width:1200px;"></div>
             <script type="text/javascript">
                 require(["plotly"], function(Plotly) {
                     window.PLOTLYENV=window.PLOTLYENV || {};
                     
-                if (document.getElementById("87260072-a234-4e84-b02b-c036e2336b0b")) {
+                if (document.getElementById("648b7977-8df8-483e-9ed2-67e63aa2bb90")) {
                     Plotly.newPlot(
-                        '87260072-a234-4e84-b02b-c036e2336b0b',
+                        '648b7977-8df8-483e-9ed2-67e63aa2bb90',
                         [{"name": "loss", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62], "xaxis": "x", "y": [0.0951483845419716, 0.04073221595899668, 0.030641564633697268, 0.02528557158075273, 0.023217498543090187, 0.02136057039751904, 0.019959204182669055, 0.019049864422413517, 0.017804571965825744, 0.01716019574814709, 0.01675525242171716, 0.016701807799108792, 0.015885412925854325, 0.015304112028388772, 0.014961087676056197, 0.01516882188298041, 0.014938694082957229, 0.014434979137149641, 0.013887720917409752, 0.013631587542477064, 0.013346533924050163, 0.013099565112497658, 0.012843546013755258, 0.012754027135088108, 0.012604823052242864, 0.012681245665589813, 0.013082140052574687, 0.012423530912201386, 0.01197379165387247, 0.011898629116330994, 0.011643031488347331, 0.012964720765012316, 0.011759619337681215, 0.01129932616095175, 0.011223811536183348, 0.011377479873772243, 0.010950134335871551, 0.011826264970295595, 0.011415215783927124, 0.010916671501036037, 0.011423571515479123, 0.010843772823136531, 0.010794605092087295, 0.010699872207624141, 0.011351606968673877, 0.011424891592469066, 0.010658963892637985, 0.010502011580683757, 0.010261539850034751, 0.011467581054603215, 0.010585761043330422, 0.010228333605482476, 0.010388362552475884, 0.010334008424251806, 0.010067255952890264, 0.009823308297200128, 0.0100701245428354, 0.011342189965944272, 0.010393165273853809, 0.009793271001399262, 0.009615294628019909, 0.009576512111379998, 0.0097587243290036], "yaxis": "y"}, {"name": "val_loss", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62], "xaxis": "x", "y": [0.0622307745506987, 0.04220977541990578, 0.03138459677575156, 0.02743632614146918, 0.02496495359810069, 0.02716264483751729, 0.023542716808151454, 0.02260329178534448, 0.02243431910756044, 0.022397144115529958, 0.0238575951079838, 0.02295435167616233, 0.02113557411939837, 0.021758540358860046, 0.020166683505522087, 0.021173152257688344, 0.021844608942046758, 0.020051056053489447, 0.02058128424687311, 0.02033010491868481, 0.01999663835158572, 0.020839382195845246, 0.0222000646754168, 0.02061655538273044, 0.02000251319259405, 0.020489204791374505, 0.022107508732005957, 0.02112594488426112, 0.019857531384332102, 0.02140170949860476, 0.02028080733725801, 0.023310876393225044, 0.020498417725320902, 0.0223330233420711, 0.021556373627390712, 0.020483957167016342, 0.021373760770075027, 0.022148173302412037, 0.02229806082323194, 0.02172067621722817, 0.0211396177764982, 0.02025588921969756, 0.02106606910820119, 0.02618118262034841, 0.02213428844697773, 0.022584260208532214, 0.020153151388512924, 0.02146020799409598, 0.021920948580373082, 0.02183569152839482, 0.020468351052841168, 0.021579437423497442, 0.0250715030124411, 0.020970380544895303, 0.020527821645373482, 0.02232109519536607, 0.02394069655565545, 0.021845453244168308, 0.019796923559624702, 0.022856041789054867, 0.01954844090505503, 0.021976329560857263, 0.022513596370117742], "yaxis": "y"}, {"line": {"dash": "dash"}, "name": "acc", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62], "xaxis": "x", "y": [0.9733808, 0.9848783000000001, 0.9888106, 0.99042314, 0.9911511999999999, 0.99179685, 0.9923003, 0.99259645, 0.99306446, 0.9932643, 0.99341166, 0.9934483000000001, 0.9937328000000001, 0.993927, 0.9940594000000001, 0.9940222, 0.9940778, 0.9942324, 0.99442285, 0.99453646, 0.99462116, 0.9947181, 0.9948193999999999, 0.9948326999999999, 0.99489295, 0.9948734, 0.9947367, 0.99495274, 0.9951075999999999, 0.9951469000000001, 0.99523693, 0.9948176, 0.9952023000000001, 0.99536854, 0.99537873, 0.99534374, 0.99548596, 0.99518865, 0.9953365, 0.9955038, 0.9953263000000001, 0.99553573, 0.99555, 0.9955777, 0.99536836, 0.99534404, 0.995597, 0.995663, 0.9957386, 0.9953367000000001, 0.99562836, 0.99575555, 0.9956953000000002, 0.99572086, 0.9958007999999999, 0.99590564, 0.99581265, 0.99537754, 0.99568826, 0.99590856, 0.99597496, 0.9959865, 0.99592906], "yaxis": "y2"}, {"line": {"dash": "dash"}, "name": "val_acc", "type": "scatter", "x": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62], "xaxis": "x", "y": [0.9783398000000001, 0.9856024, 0.98837066, 0.9897587, 0.9905985, 0.9902184000000002, 0.9909396, 0.99131787, 0.99146193, 0.99175435, 0.9911152, 0.99192846, 0.99224067, 0.99159336, 0.99233365, 0.9922228999999999, 0.99241143, 0.99264437, 0.99273694, 0.9928271999999999, 0.9926712, 0.99277216, 0.9923245, 0.992778, 0.99305046, 0.9928474, 0.99281955, 0.9928302999999999, 0.99289733, 0.9931537, 0.9927273000000001, 0.9925902, 0.99291176, 0.9931065999999998, 0.9931943000000001, 0.99318707, 0.99301475, 0.99300075, 0.99312437, 0.9932886999999999, 0.9930061, 0.99280834, 0.99316823, 0.99311435, 0.9931639000000001, 0.99319935, 0.9931479, 0.9933533000000001, 0.9931529, 0.99330163, 0.99323934, 0.9922646, 0.9932367, 0.99322295, 0.99334073, 0.9935265999999999, 0.9933291, 0.99317837, 0.993129, 0.9935526, 0.99332154, 0.99350035, 0.993451], "yaxis": "y2"}],
                         {"font": {"size": 20}, "height": 600, "legend": {"orientation": "h"}, "paper_bgcolor": "rgba(255,255,255,0.05)", "plot_bgcolor": "rgba(0,0,0,0)", "template": {"data": {"bar": [{"error_x": {"color": "#f2f5fa"}, "error_y": {"color": "#f2f5fa"}, "marker": {"line": {"color": "rgb(17,17,17)", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "rgb(17,17,17)", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#A2B1C6", "gridcolor": "#506784", "linecolor": "#506784", "minorgridcolor": "#506784", "startlinecolor": "#A2B1C6"}, "baxis": {"endlinecolor": "#A2B1C6", "gridcolor": "#506784", "linecolor": "#506784", "minorgridcolor": "#506784", "startlinecolor": "#A2B1C6"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"line": {"color": "#283442"}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"line": {"color": "#283442"}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#506784"}, "line": {"color": "rgb(17,17,17)"}}, "header": {"fill": {"color": "#2a3f5f"}, "line": {"color": "rgb(17,17,17)"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#f2f5fa", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#f2f5fa"}, "geo": {"bgcolor": "rgb(17,17,17)", "lakecolor": "rgb(17,17,17)", "landcolor": "rgb(17,17,17)", "showlakes": true, "showland": true, "subunitcolor": "#506784"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "dark"}, "paper_bgcolor": "rgb(17,17,17)", "plot_bgcolor": "rgb(17,17,17)", "polar": {"angularaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "bgcolor": "rgb(17,17,17)", "radialaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}, "yaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}, "zaxis": {"backgroundcolor": "rgb(17,17,17)", "gridcolor": "#506784", "gridwidth": 2, "linecolor": "#506784", "showbackground": true, "ticks": "", "zerolinecolor": "#C8D4E3"}}, "shapedefaults": {"line": {"color": "#f2f5fa"}}, "sliderdefaults": {"bgcolor": "#C8D4E3", "bordercolor": "rgb(17,17,17)", "borderwidth": 1, "tickwidth": 0}, "ternary": {"aaxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "baxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}, "bgcolor": "rgb(17,17,17)", "caxis": {"gridcolor": "#506784", "linecolor": "#506784", "ticks": ""}}, "title": {"x": 0.05}, "updatemenudefaults": {"bgcolor": "#506784", "borderwidth": 0}, "xaxis": {"automargin": true, "gridcolor": "#283442", "linecolor": "#506784", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "#283442", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "#283442", "linecolor": "#506784", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "#283442", "zerolinewidth": 2}}}, "title": {"text": "loss / accuracy curve for Potsdam model"}, "width": 1200, "xaxis": {"gridcolor": "rgba(100,100,100,1)", "title": {"font": {"size": 20}, "text": "Epoch"}}, "yaxis": {"gridcolor": "rgba(100,100,100,1)", "title": {"font": {"size": 20}, "text": "Loss"}, "type": "log"}, "yaxis2": {"anchor": "x", "overlaying": "y", "showgrid": false, "side": "right", "title": {"text": "Accuracy"}}},
                         {"responsive": true}
                     ).then(function(){
                             
-var gd = document.getElementById('87260072-a234-4e84-b02b-c036e2336b0b');
+var gd = document.getElementById('648b7977-8df8-483e-9ed2-67e63aa2bb90');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -13581,6 +13608,48 @@ if (outputEl) {{
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Let's-combine-them">Let's combine them<a class="anchor-link" href="#Let's-combine-them">&#182;</a></h1><ul>
+<li>Training model on combined dataset mostly infeasible</li>
+<li>Model compiled for EdgeTPU for inference</li>
+<li>Model input layers share input, out is concatenated</li>
+<li>TF/Keras model exported to TFLite --&gt; compiled for EdgeTPU</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Live inferencing via Google Coral EdgeTPU Accelerator
+<img src='img/live-demo-backup.gif' width=600>
+<img src='img/live-demo-backup2.gif' width=600></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Next-Steps">Next Steps<a class="anchor-link" href="#Next-Steps">&#182;</a></h1><ul>
+<li>Segment infrastructure damage</li>
+<li>More data, more data, more data!</li>
+<li>Try different models / model complexity (GAN / pix2pix?)</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Thank-you-for-your-attention">Thank you for your attention<a class="anchor-link" href="#Thank-you-for-your-attention">&#182;</a></h1>
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
