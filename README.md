@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Final Project at Spiced Academy
 
 The associated presentation can be found [here](https://markusmeingast.github.io/Satellite-Classifier/)
